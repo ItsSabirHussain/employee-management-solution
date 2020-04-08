@@ -1,0 +1,22 @@
+[
+    {
+        "code": "en",
+        "name": "English"
+    },
+    {
+        "code": "sk",
+        "name": "Slovenčina"
+    },
+    {
+        "code": "404",
+        "name": "404"
+    },
+    {
+        "code": "409",
+        "name": "409"
+    },
+    {
+        "code": "500",
+        "name": "500"
+    }
+]

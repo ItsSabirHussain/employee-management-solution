@@ -1,0 +1,161 @@
+.form-group.required .control-label:after {
+    content: " *";
+    color: $lightRed;
+}
+
+.form-wizard .nav-tabs {
+    border-bottom: none;
+}
+
+form {
+    label {
+        font-weight: $fontWeightMedium;
+        font-size: 13px;
+        color: $fontColorDark;
+        i {
+            color: $lightGreen;
+        }
+    }
+    .form-control-static a {
+        font-size: 13px;
+    }
+    a {
+        color: $lightGreen;
+        font-size: 12px;
+        &:hover {
+            color: $darkGreen;
+        }
+    }
+    .currencyCode {
+        padding-top: 7px;
+        float: left;
+        margin-left: -5px;
+    }
+}
+
+.form-control {
+    font-size: $fontSizeBase;
+    border: $inputWidth solid $inputBorder;
+    &:focus {
+        box-shadow: none;
+        border: $inputWidth solid $inputFocusBorder;
+    }
+}
+
+.form-wizard .nav-tabs {
+    border-bottom: none;
+    li:first-child a, li:first-child button {
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+    }
+    li:last-child a, li:last-child button {
+        border-bottom-right-radius: 4px;
+        border-bottom-left-radius: 4px;
+    }
+    li button {
+        position: relative;
+        display: block;
+        padding: 10px 15px;
+        border: 0;
+        width: 100%;
+    }
+    li a, li button {
+        background: #f0f3f4;
+        margin-right: 0;
+        border-radius: 0;
+        color: $fontColorDark;
+        font-size: 13px;
+    }
+    li a:hover, li button:hover {
+        background: #d3dadf;
+        border-color: transparent;
+    }
+    li.active a, li.active button {
+        background-color: $lightGreen;
+        border: 0;
+        color: $white;
+    }
+    li.active a:hover, li.active button:hover {
+        background-color: $lightGreen;
+    }
+    li.active .menu-icon, li .menu-icon {
+        display: block;
+        width: 20px;
+        text-align: center;
+        border-radius: 25px;
+        line-height: 20px;
+        font-size: 14px;
+        margin: 0 auto 5px;
+        color: $white;
+    }
+    li.active .menu-icon {
+        background: $darkGreen;
+    }
+    li .menu-icon {
+        background: #6d7479;
+    }
+}
+.form-wizard .pager {
+    margin: 0;
+}
+select[multiple] {
+    height: 200px;
+    overflow:auto;
+}
+//validation
+.form-validation.ng-submitted {
+    .form-control.ng-dirty.ng-valid{
+        border-color: $lightGreen;
+    }
+    .form-control:focus.ng-dirty.ng-valid {
+        box-shadow: none;
+        border-color: $darkGreen;
+    }
+    .form-control.ng-invalid{
+        border-color: $lightRed;
+    }
+    .form-control:focus.ng-invalid {
+        box-shadow: none;;
+        border-color: $darkRed;
+    }
+    .error {
+        color: $lightRed;
+        padding-top: 5px;
+        font-size: $fontSizeBase;
+        &:before {
+            border: 5px solid transparent;
+            float: left;
+            margin: 4px;
+            border-left-color: $lightRed;
+            content: "";
+            left: 0;
+        }
+    }
+}
+
+.radio-inline label,
+.checkbox-inline label,
+.checkbox label,
+.checkbox label i {
+    color: $fontColorLight;
+}
+.checkbox label:after {
+    color: $lightGreen;
+}
+.radio input[type="radio"]:focus + label::before,
+.checkbox input[type="checkbox"]:focus + label::before {
+    outline: none;
+}
+.radio-success input[type="radio"] + label::after {
+    background-color: $lightGreen!important;
+}
+.radio-danger input[type="radio"] + label::after {
+    background-color: $lightRed;
+}
+.radio-warning input[type="radio"] + label::after {
+    background-color: $lightOrange;
+}
+
+.radio-success label::before {border-color: $lightGreen;}
+.radio-danger label::before {border-color: $lightRed;}
+.radio-warning label::before {border-color: $lightOrange;}

@@ -1,0 +1,85 @@
+.fc-toolbar h2 {
+    line-height: 31px!important;
+    font-size: 24px!important;
+}
+table thead tr th.fc-widget-header {
+    color: $fontColorDark!important;
+    font-weight: 500!important;
+    padding-top: 3px!important;
+    padding-bottom: 3px!important;
+}
+.fc-widget-content, .fc-widget-header {
+    border-color: #e2e7eb!important;
+}
+
+.availability-available {
+    background-color: $lightGreen;
+}
+.availability-unavailable {
+    background-color: $lightRed;
+}
+.availability-necessary {
+    background-color: $lightOrange;
+}
+.disable .fc-view-container {
+    opacity: .2;
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
+.availability-event, .availability-scheduler-event {
+    position: relative;
+    text-align: center;
+}
+.availability-event:before, .availability-scheduler-event:before {
+    font-family: 'FontAwesome';
+    font-size: 30px;
+    content: "\f073";
+    filter: alpha(opacity=30);
+    -moz-opacity: 0.3;
+    opacity: 0.3;
+}
+.availability-event:before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.legend .btn {
+    filter: alpha(opacity=40);
+    -moz-opacity: 0.4;
+    opacity: 0.4;
+    cursor: auto;
+}
+.legend {
+    .btn-success:hover {
+        background: $lightGreen;
+    }
+    .btn-danger:hover {
+        background: $lightRed;
+    }
+    .btn-warning:hover {
+        background: $lightOrange;
+    }
+}
+.btn-calendar, .btn-calendar:hover {
+    background: transparent;
+    color: $fontColorLight;
+}
+.btn-calendar:before {
+    font-family: 'FontAwesome';
+    content: "\f073";
+    font-size: 27px;
+}
+.fc-row .fc-highlight-skeleton td,
+.fc-row .fc-bgevent-skeleton td {
+    border: 0;
+}
+.fc-unthemed .fc-today {
+    background: #f1f2f3;
+}
+.fc-body .fc-resource-area .fc-cell-content {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}

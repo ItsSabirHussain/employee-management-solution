@@ -1,0 +1,48 @@
+<div class="col-sm-12 col-md-9 animated fadeInRight">
+    <div class="panel panel-inverse">
+        <div class="panel-heading">
+            <h4 class="panel-title">Positions</h4>
+        </div>
+        <div class="panel-body">
+            <alert-danger has-error="vm.hasError" error-message="vm.errorMessage"></alert-danger>
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <div class="table-filter">
+                        Search: <input type="search" ng-init="searchFilter = {}" ng-model="searchFilter.$">
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <div class="pull-right">
+                        <button type="button" class="btn btn-sm btn-success" ui-sref="app.settings.positions.add"><i class="fa fa-plus mr5"></i>Add Position</button>
+                    </div>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table si-table class="table table-hover animated fadeIn">
+                    <thead>
+                        <tr>
+                            <th sort-by="name" sort-init="asc">Name</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr si-sortable="single" ng-repeat="position in vm.positions | filter:searchFilter">
+                            <td>{{position.name}}</td>
+                            <td>
+                                <a mm-modal-really-click="vm.deletePosition(position)" mm-really-header="Delete Position" mm-really-message="Are you sure you want delete this position?" tooltip-placement="top" tooltip="delete"><i class="fa fa-trash fa-fw"></i></a>
+                                <a ui-sref=".edit({id: position.id})" tooltip-placement="top" tooltip="edit"><i class="fa fa-pencil fa-fw"></i></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="100%">
+                                <si-table-pagination limit="10" class="pull-right" previous-text="← Previous" next-text="Next →"/>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

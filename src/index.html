@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- build:remove -->
+        <base href="/">
+        <!-- endbuild -->
+        <!-- inject:baseUrl --><!-- endinject -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Employee Scheduling</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <!-- build:css(.tmp) styles/main.min.css -->
+        <!-- TODO: (martin) the bootstrap.css & font awesome should be load in vendor.js but how I make sure that vendor css files are loaded before main.css as vendor css files are load through JS -->
+        <link rel="stylesheet" href="../jspm_packages/github/fyockm/bootstrap-css-only@3.3.5/css/bootstrap.css"/>
+        <link rel="stylesheet" href="../jspm_packages/github/buberdds/angular-bootstrap-colorpicker@3.0.19/css/colorpicker.css"/>
+        <link rel="stylesheet" href="../jspm_packages/npm/font-awesome@4.4.0/css/font-awesome.css"/>
+        <link rel="stylesheet" href="../jspm_packages/npm/fullcalendar@2.5.0/dist/fullcalendar.css"/>
+        <link rel="stylesheet" href="../jspm_packages/npm/fullcalendar-scheduler@1.1.0/dist/scheduler.css"/>
+        <link rel="stylesheet" href="../jspm_packages/npm/awesome-bootstrap-checkbox@0.3.6/awesome-bootstrap-checkbox.css"/>
+
+        <link rel="stylesheet" href="styles/main.css" />
+        <!-- endbuild -->
+    </head>
+    <body>
+        <!--[if lt IE 10]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+            your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div id="page-loader" class="fade" ng-class="{'in': $root.isLoading, 'hidden': !$root.isLoading}"><span class="spinner"></span></div>
+        <div ui-view></div>
+
+        <!-- build:js(.) scripts/main.min.js -->
+        <!-- inject:build:js --><!-- endinject -->
+        <!-- endbuild -->
+
+        <!-- build:remove -->
+        <script src="jspm_packages/system.js"></script>
+        <script src="jspm.conf.js"></script>
+        <script>
+            System.import('app/app').catch(console.error.bind(console)); // make sure any errors are print to console
+        </script>
+        <!-- endbuild -->
+    </body>
+</html>

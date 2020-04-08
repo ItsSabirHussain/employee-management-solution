@@ -1,0 +1,53 @@
+html,
+body {
+    width: 100%;
+    height: 100%;
+    background: $lightGrey;
+}
+body {
+    font-family: 'Open Sans', "Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: $fontColorLight;
+    font-size: $fontSizeBase;
+    overflow-x: hidden;
+}
+h1, h2, h3, h4, h5, h6{
+    font-weight: $fontWeightMedium;
+    color: $fontColorDark;
+}
+div[ui-view] {
+    height: 100%;
+}
+main {
+    min-height: 100%;
+    height: auto;
+    /* Negative indent footer by its height */
+    margin: 0 auto -50px;
+    /* Pad bottom by footer height 50px + 20px inner padding*/
+    padding: 70px 0;
+    background-color: $lightGrey;
+}
+footer {
+    line-height: 50px;
+    height: 50px;
+    background-color: #2d353c;
+    color: $mediumGrey;
+    font-size: 12px;
+}
+label {
+    color: $fontColorDark;
+}
+a {
+    cursor: pointer;
+    color: $lightGreen;
+    transition: color 100ms ease-in-out;
+    -o-transition: color 100ms ease-in-out;
+    -ms-transition: color 100ms ease-in-out;
+    -moz-transition: color 100ms ease-in-out;
+    -webkit-transition: color 100ms ease-in-out;
+}
+a:hover {
+    outline: none;
+    color: $darkGreen;
+}
+button:focus, a:focus {outline:0;}
+ul {list-style-type: none;}

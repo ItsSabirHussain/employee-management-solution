@@ -1,0 +1,94 @@
+<div class="container-fluid">
+    <div class="panel panel-inverse">
+        <div class="panel-heading">
+            <h4 class="panel-title">Employees</h4>
+        </div>
+        <div class="panel-body">
+            <alert-danger has-error="vm.hasError" error-message="vm.errorMessage"></alert-danger>
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <div class="table-filter">
+                        Search: <input type="search" ng-init="searchFilter = {}" ng-model="searchFilter.$">
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <div class="pull-right">
+                        <button type="button" class="btn btn-sm btn-success" ui-sref="app.employees.add.account-details"><i class="fa fa-plus mr5"></i>Add Employee</button>&nbsp;
+                        <div class="btn-group">
+                            <button class="btn btn-sm btn-info" ng-class="{ 'active': vm.listViewTable }" ng-click="vm.toggleListView()"><i class="fa fa-align-justify fa-fw"></i> Table</button>
+                            <button class="btn btn-sm btn-info" ng-class="{ 'active': !vm.listViewTable }" ng-click="vm.toggleListView()"><i class="fa fa-th-large fa-fw"></i> Grid</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="table-responsive" ng-if="vm.listViewTable">
+                <table si-table class="table table-hover animated fadeIn">
+                    <thead>
+                        <tr>
+                            <th>Photo</th>
+                            <th sort-by="firstName" sort-init="asc">Name</th>
+                            <th sort-by="email">Email</th>
+                            <th sort-by="phoneNumber">Phone Number</th>
+                            <th sort-by="position">Position</th>
+                            <th sort-by="role">Role</th>
+                            <th sort-by="status">Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- TODO: delete icon should not be displayed for current user (user that is looking at the list)-->
+                        <tr si-sortable="single" ng-repeat="employee in vm.employees | filter:searchFilter">
+                            <td><img ng-src="{{::employee.avatar}}" alt="" class="img-circle" title="{{::employee.firstName}} {{::employee.lastName}}"></td>
+                            <td>{{employee.firstName}} {{employee.lastName}}</td>
+                            <td>{{employee.email}}</td>
+                            <td>{{employee.phoneNumber}}</td>
+                            <td>{{employee.position | positionLabel:vm.positions}}</td>
+                            <td>{{employee.role}}</td>
+                            <td><span class="label"
+                                      ng-class="{'label-success': employee.status === 'active', 'label-warning': employee.status === 'pending', 'label-default': employee.status === 'inactive'}">{{employee.status}}</span></td>
+                            <td>
+                                <a ui-sref=".message({id: employee.id})" tooltip-placement="top" tooltip="send message"><i class="fa fa-comment-o fa-fw"></i></a>
+                                <a ui-sref=".schedule({id: employee.id})" tooltip-placement="top" tooltip="see schedule"><i class="fa fa-calendar fa-fw"></i></a>
+                                <a mm-modal-really-click="vm.deleteEmployee(employee)" mm-really-header="Delete Employee" mm-really-message="Are you sure you want delete this employee?" tooltip-placement="top" tooltip="delete"><i class="fa fa-trash fa-fw"></i></a>
+                                <a ui-sref=".edit.account-details({id: employee.id})" tooltip-placement="top" tooltip="edit"><i class="fa fa-pencil fa-fw"></i></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="100%">
+                                <si-table-pagination limit="10" class="pull-right" previous-text="← Previous" next-text="Next →"/>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <div ng-if="!vm.listViewTable">
+                <div class="row animated fadeIn mt20">
+                    <div class="col-lg-2 col-md-3 col-sm-3" ng-repeat="employee in vm.employees | filter:searchFilter">
+                        <div class="thumbnail">
+                            <div class="text-center" style="padding-top: 9px;">
+                                <img ng-src="{{employee.avatar}}" alt=""
+                                     ng-class="{'img-bordered-success': employee.status === 'active', 'img-bordered-warning': employee.status === 'pending', 'img-bordered-dark': employee.status === 'inactive'}"
+                                     class="img-circle"
+                                     title="{{::employee.firstName}} {{::employee.lastName}}"
+                                     style="height: 70px; width: 70px;">
+                            </div>
+                            <div class="caption text-center">
+                                <h6 class="mb0 mt0 font-weight-heavy">{{employee.firstName}} {{employee.lastName}}</h6>
+                                {{employee.position | positionLabel:vm.positions}} <br />
+                                <p>{{employee.phoneNumber}}</p>
+                                <div>
+                                    <a ui-sref=".message({id: employee.id})" tooltip-placement="top" tooltip="send message"><i class="fa fa-comment-o fa-fw"></i></a>
+                                    <a ui-sref=".schedule({id: employee.id})" tooltip-placement="top" tooltip="see schedule"><i class="fa fa-calendar fa-fw"></i></a>
+                                    <a mm-modal-really-click="vm.deleteEmployee(employee)" mm-really-header="Delete Employee" mm-really-message="Are you sure you want delete this employee?" tooltip-placement="top" tooltip="delete"><i class="fa fa-trash fa-fw"></i></a>
+                                    <a ui-sref=".edit.account-details({id: employee.id})" tooltip-placement="top" tooltip="edit"><i class="fa fa-pencil fa-fw"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

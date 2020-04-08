@@ -1,0 +1,34 @@
+<div class="modal-header">
+    <button type="button" class="close" ng-click="vm.cancel()">×</button>
+    <h4 class="modal-title">Add Employee</h4>
+</div>
+<div class="modal-body form-wizard">
+    <form class="form-horizontal form-validation" name="employeeForm" role="form" novalidate>
+        <aside class="col-sm-12 col-md-3 pl0">
+            <ul class="list-table mb10">
+                <li>
+                    <profile-completeness-bar type="vm.profileCompletenessType"></profile-completeness-bar>
+                </li>
+            </ul>
+            <ul class="nav nav-tabs nav-stacked">
+                <li ng-class="{active: vm.router.includes('app.employees.add.account-details')}" class="text-center"><button type="submit" ng-click="vm.goToNextSection(employeeForm.$valid, employeeForm, 'app.employees.add.account-details')"><div class="menu-icon">1</div><i class="fa fa-user fa-fw "></i>&nbsp;Account Details</button></li>
+                <li ng-class="{active: vm.router.includes('app.employees.add.contact-details')}" class="text-center"><button type="submit" ng-click="vm.goToNextSection(employeeForm.$valid, employeeForm, 'app.employees.add.contact-details')"><div class="menu-icon">2</div><i class="fa fa-pencil-square-o fa-fw"></i>&nbsp;Contact Details</button></li>
+                <li ng-class="{active: vm.router.includes('app.employees.add.bank-details')}" class="text-center"><button type="submit" ng-click="vm.goToNextSection(employeeForm.$valid, employeeForm, 'app.employees.add.bank-details')"><div class="menu-icon">3</div><i class="fa fa-bank fa-fw"></i>&nbsp;Bank Details</button></li>
+                <li ng-class="{active: vm.router.includes('app.employees.add.hourly-rate')}" class="text-center"><button type="submit" ng-click="vm.goToNextSection(employeeForm.$valid, employeeForm, 'app.employees.add.hourly-rate')"><div class="menu-icon">4</div><i class="fa fa-dollar fa-fw"></i>&nbsp;Hourly Rate</button></li>
+                <li mm-access-level="$root.ACCESS_LEVELS.admin" ng-class="{active: vm.router.includes('app.employees.add.authorizations')}" class="text-center"><button type="submit" ng-click="vm.goToNextSection(employeeForm.$valid, employeeForm, 'app.employees.add.authorizations')"><div class="menu-icon">5</div><i class="fa fa-lock fa-fw"></i>&nbsp;Authorizations</button></li>
+                <li ng-class="{active: vm.router.includes('app.employees.add.complete')}" class="text-center"><button type="submit" ng-click="vm.goToNextSection(employeeForm.$valid, employeeForm, 'app.employees.add.complete')"><div class="menu-icon"><span ng-if="!vm.isAdmin">5</span><span ng-if="vm.isAdmin">6</span></div><i class="fa fa-check fa-fw"></i>&nbsp;Complete</button></li>
+            </ul>
+        </aside>
+
+        <section class="well col-sm-12 col-md-9">
+            <div ui-view="modal"></div>
+        </section>
+
+        <ul class="pager bwizard-buttons row">
+            <div class="col-sm-12 col-md-9 col-md-offset-3 pl0 pr0">
+                <li class="previous" ng-class="{disabled: vm.router.includes('app.employees.add.account-details')}"><button ng-click="vm.goToPreviousSection()">← Previous</button></li>
+                <li class="next" ng-class="{disabled: vm.router.includes('app.employees.add.complete')}"><button ng-click="vm.goToNextSection(employeeForm.$valid, employeeForm)">Next →</button></li>
+            </div>
+        </ul>
+    </form>
+</div>

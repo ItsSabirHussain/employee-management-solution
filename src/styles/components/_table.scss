@@ -1,0 +1,107 @@
+//where should I put images?
+.img-bordered-light {
+    box-shadow: 0 0 0 3px $white;
+}
+.img-bordered-dark {
+    box-shadow: 0 0 0 3px #b6c2c9;
+}
+.img-bordered-success {
+    box-shadow: 0 0 0 3px $lightGreen;
+}
+.img-bordered-warning {
+    box-shadow: 0 0 0 3px $lightOrange;
+}
+
+.list-table {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+.list-table>li:first-child {
+    padding-left: 0;
+}
+.list-table>li:last-child {
+    padding-right: 0;
+}
+.list-table>li {
+    display: table-cell;
+    table-layout: fixed;
+    vertical-align: middle;
+    width: auto;
+    padding: 0 5px;
+}
+
+.table .img-circle, span .img-circle {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+}
+
+.table-info {
+    padding-top: 8px;
+    color: $fontColorDark;
+}
+
+.table-filter {
+    color: $fontColorDark;
+    .checkbox {
+        display: inline;
+    }
+    input {
+        border: 1px solid $inputBorder;
+        background: #edf0f5;
+        padding: 6px 12px;
+        color: #555;
+        border-radius: 3px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    input:focus {
+        outline: 0;
+        border-color: $inputFocusBorder;
+    }
+}
+
+/* TABLE */
+.table {
+    border-color: #e2e7eb;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+.table > thead > tr > th {
+    color: $fontColorDark;
+    font-weight: 600;
+    border-bottom: 2px solid #e2e7eb !important;
+    a {
+        color: $fontColorDark;
+        text-decoration: none;
+    }
+}
+.table > thead > tr > th,
+.table > tbody > tr > th,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > td,
+.table > tfoot > tr > td {
+    border-color: #e2e7eb;
+    padding: 10px 15px;
+    vertical-align: middle;
+}
+.table > tfoot > tr > td {
+    padding: 15px 0 0;
+}
+.table-hover > tbody > tr:hover > td,
+.table-hover > tbody > tr:hover > th {
+    background: #e8ecf1 !important;
+}
+.table-striped > tbody > tr:nth-child(odd) > td,
+.table-striped > tbody > tr:nth-child(odd) > th {
+    background: #f0f3f5;
+}
+
+

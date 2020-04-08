@@ -1,0 +1,21 @@
+<div class="container-fluid">
+    <div class="row">
+        <aside class="col-sm-12 col-md-3 animated fadeInLeft">
+            <ul class="list-table mb10">
+                <li style="width:70px;">
+                    <img class="img-circle img-bordered-light" ng-src="{{vm.employee.avatar}}" alt="avatar" width="65px">
+                </li>
+                <li class="text-left">
+                    <h5 class="font-weight-heavy ellipsis">{{vm.employee.firstName}} {{vm.employee.lastName}}</h5>
+                    <profile-completeness-bar></profile-completeness-bar>
+                </li>
+            </ul>
+            <ul class="list-group list-group-tabs">
+                <li class="list-group-item" ui-sref-active="active"><a ui-sref="app.account.account-details"><i class="fa fa-user fa-fw "></i>&nbsp;Account Details</a></li>
+                <li class="list-group-item" ui-sref-active="active"><a ui-sref="app.account.contact-details"><i class="fa fa-pencil-square-o fa-fw"></i>&nbsp;Contact Details</a></li>
+                <li class="list-group-item" ui-sref-active="active"><a ui-sref="app.account.password"><i class="fa fa-key fa-fw"></i>&nbsp;Password</a></li>
+            </ul>
+        </aside>
+        <section ui-view></section>
+    </div>
+</div>
